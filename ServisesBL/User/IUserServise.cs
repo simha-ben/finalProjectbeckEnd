@@ -9,7 +9,6 @@ namespace ServisesBL
     {
         List<string> getAllUsersName();
         int createNewUser(UserVM uvm);
-
         int login(UserVM uvm);
         string getUserById(int id);
     }

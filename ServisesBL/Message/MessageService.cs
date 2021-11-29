@@ -33,7 +33,7 @@ namespace ServisesBL
             foreach (var item in messages)
             {
                 MessageVM m=(mapper.Map<MessageVM>(item));
-                m.FromUserName = userRepo.getUserById(m.FromUser);
+                m.FromUserName = userRepo.getUserNameById(m.FromUser);
                 acceptefMessage.Add(m);
             }
             return acceptefMessage;
@@ -47,7 +47,7 @@ namespace ServisesBL
             foreach (var item in messages)
             {
                 MessageVM m = (mapper.Map<MessageVM>(item));
-                m.ToUserName = userRepo.getUserById(id);
+                m.ToUserName = userRepo.getUserNameById(id);
                 sentfMessage.Add(m);
             }
             return sentfMessage;

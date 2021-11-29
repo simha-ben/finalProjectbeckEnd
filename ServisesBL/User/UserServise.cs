@@ -32,21 +32,24 @@ namespace ServisesBL
 
         public string getUserById(int id)
         {
-            return userRepository.getUserById(id);
+            return userRepository.getUserNameById(id);
         }
 
-        public int login(UserVM newUser)
+        public int login(UserVM uvm)
         {
-            int id = -1;
-            if (newUser == null || newUser.Email == null || newUser.UserName == null)
-                return id;
-           List<Users> context = userRepository.getAllUsers();
             //מחזיר -1 אם לא קיים כזה משתמש
+            //מחזיר -2 אם יש שדה ריק
+            //מחזיר -ID 
+            int id = -1;
+            if (uvm == null || uvm.Email == null || uvm.UserName == null || uvm.Password==null)
+                return -2;
+           List<Users> context = userRepository.getAllUsers();
+           
             foreach (var item in context)
             {
-                if (newUser.UserName.Equals(item.UserName))
+                if (uvm.UserName.Equals(item.UserName))
                 {
-                    if (item.Email.Equals(newUser.Email.Trim()))
+                    if (item.Email.Equals(uvm.Email.Trim()))
                     {
                         id = item.Id;
                         break;
