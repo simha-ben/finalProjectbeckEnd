@@ -27,7 +27,7 @@ namespace ServisesBL
 
         public List<string> getAllUsersName()
         {
-            return userRepository.getAllUsers();
+            return userRepository.getAllUsersName();
         }
 
         public string getUserById(int id)
@@ -35,7 +35,7 @@ namespace ServisesBL
             return userRepository.getUserById(id);
         }
 
-        public int login(Users newUser)
+        public int login(UserVM newUser)
         {
             int id = -1;
             if (newUser == null || newUser.Email == null || newUser.UserName == null)
