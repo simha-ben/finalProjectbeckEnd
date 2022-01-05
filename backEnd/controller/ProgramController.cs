@@ -23,5 +23,10 @@ namespace BackEndAPI.controller
         {
             return programService.getAllPrograms();
         }
+        [HttpGet("getFields/{TableName}")]
+        public List<string> getfieleds(string TableName)
+        {
+            return programService.getFields(TableName);
+        }
     }
 }

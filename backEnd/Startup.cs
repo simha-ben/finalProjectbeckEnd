@@ -29,6 +29,7 @@ namespace backEnd
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IProgramService, ProgramService>();
             services.AddScoped<IProgramRepositort, ProgramRepositort>();
+            services.AddScoped<IGlobalInterface, Global>();
 
             services.AddDependencies();
 

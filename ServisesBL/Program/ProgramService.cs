@@ -12,12 +12,14 @@ namespace ServisesBL
     {
         IProgramRepositort programRepo;
         IUserRepository userRepo;
+        IGlobalInterface global;
         IMapper mapper;
-        public ProgramService(IProgramRepositort repo,IMapper m,IUserRepository user)
+        public ProgramService(IProgramRepositort repo, IGlobalInterface c, IMapper m,IUserRepository user)
         {
             this.programRepo = repo;
             this.mapper = m;
             this.userRepo = user;
+            this.global = c;
         }
         public List<ProgramVM> getAllPrograms()
         {
@@ -26,10 +28,22 @@ namespace ServisesBL
             foreach (var item in p)
             {
                 ProgramVM pmv = mapper.Map<ProgramVM>(item);
-                pmv.ProgramerName = userRepo.getUserById((int)(item.Programer));
+                //pmv.ProgramerName = userRepo.getUserNameById((int)(item.Programer));
+                pmv.Age = global.convert("Age",(int)(item.Age));               
+                pmv.Migdar = global.convert("Migdar", (int)(item.Migdar));               
+                pmv.Language = global.convert("Language", (int)(item.Language));               
+                pmv.SumOfParticipants = global.convert("SumOfParticipants", (int)(item.SumOfParticipants));               
+                pmv.Type = global.convert("Type", (int)(item.Type));               
+                pmv.ProgramerName = global.convert("Programer", (int)(item.Programer));               
+               
                 vm.Add(pmv);
             }
             return vm;
+        }
+
+        public List<string> getFields(string tableName)
+        {
+            return global.getAllFiles(tableName);
         }
     }
 }

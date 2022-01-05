@@ -17,6 +17,7 @@ namespace Repositories.Models
         public int? Language { get; set; }
         public DateTime? PublishDate { get; set; }
         public string Title { get; set; }
+        public int? Status { get; set; }
 
         public virtual Age AgeNavigation { get; set; }
         public virtual Language LanguageNavigation { get; set; }

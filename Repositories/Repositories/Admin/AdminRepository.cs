@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Repositories.Models;
 
@@ -12,6 +13,13 @@ namespace Repositories.Repositories
         {
             this.context = c;
         }
+
+        public void changeProgramstatus(int programId, int status)
+        {
+            context.Program.Where(p => p.Id == programId).FirstOrDefault().Status = status;
+            context.SaveChanges();
+        }
+
         public int createNewAdmin(Admin newAdmin)
         {
             int id = 120;

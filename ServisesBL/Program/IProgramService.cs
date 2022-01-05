@@ -8,5 +8,7 @@ namespace ServisesBL
   public  interface IProgramService
     {
         List<ProgramVM> getAllPrograms();
+         List<string> getFields(string tableName);
+        
     }
 }

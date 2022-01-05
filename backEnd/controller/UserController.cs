@@ -33,7 +33,12 @@ namespace BackEndAPI.controler
         [HttpPost]
         public int CreateNewUser(UserVM uvm)
         {
-            return userSer.login(uvm);
+            return userSer.createNewUser(uvm);
+        }
+        [HttpGet("getName/{id}")]
+        public string getUsernamebyId(int id)
+        {
+            return userSer.getUserById(id);
         }
     }
 }

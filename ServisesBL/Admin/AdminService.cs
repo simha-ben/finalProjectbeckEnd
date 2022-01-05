@@ -12,11 +12,19 @@ namespace ServisesBL
     {
         IAdminRepository adminRepo;
         IMapper mapper;
-        public AdminService(IAdminRepository adminRepo, IMapper mapper)
+        IGlobalInterface global;
+        public AdminService(IAdminRepository adminRepo, IGlobalInterface global,IMapper mapper)
         {
             this.adminRepo = adminRepo;
             this.mapper = mapper;
+            this.global = global;
         }
+
+        public void changeProgramstatus(int programId, int status)
+        {
+            ////////////////////////////
+        }
+
         public int createNewAdmin(AdminVM newAdmin)
         {
             Admin newA = mapper.Map<Admin>(newAdmin);
@@ -29,9 +37,21 @@ namespace ServisesBL
             return adminRepo.login(A);
         }
 
-        public int newProgram(ProgramVM newProgram)
-        {  
-            Program P = mapper.Map<Program>(newProgram);
+        public int newProgram(ProgramVM item)
+        {
+            Program P=new Program();/*= mapper.Map<Program>(item); */           
+            P.Age = global.convertNameToId("Age",item.Age);
+            P.Migdar = global.convertNameToId("Migdar", item.Migdar);
+            P.Language = global.convertNameToId("Language", item.Language);
+            P.SumOfParticipants = global.convertNameToId("SumOfParticipants",item.SumOfParticipants);
+            P.Type = global.convertNameToId("Type",item.Type);
+            P.Subject = global.convertNameToId("Subject",item.Subject);
+            P.Programer = global.convertNameToId("Programer",item.ProgramerName);
+            P.Title = item.Title;
+            P.Price = item.Price;
+            P.Description = item.Description;
+            P.PublishDate = item.PublishDate;
+            P.Status = -1;
             return adminRepo.newProgram(P);
         }
     }

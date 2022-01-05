@@ -10,7 +10,7 @@ namespace Repositories.Repositories
         int createNewAdmin(Admin newAdmin);
         int login(Admin newAdmin);
         int newProgram(Program newProgram);
-
+        void changeProgramstatus(int programId, int status);
     }
 }
 

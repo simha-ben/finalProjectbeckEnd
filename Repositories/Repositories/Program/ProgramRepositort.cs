@@ -13,11 +13,11 @@ namespace Repositories.Repositories
         {
             this.contaxt = easy;
         }
+
         public List<Program> getAllPrograms()
         {
-            return contaxt.Program.ToList();
+            return contaxt.Program.Where(p => p.Status == 1).ToList();
         }
+       
     }
-
-    
 }

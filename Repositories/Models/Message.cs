@@ -10,6 +10,7 @@ namespace Repositories.Models
         public int? ToUser { get; set; }
         public DateTime? Date { get; set; }
         public string Content { get; set; }
+        public string Title { get; set; }
 
         public virtual Users FromUserNavigation { get; set; }
         public virtual Users ToUserNavigation { get; set; }

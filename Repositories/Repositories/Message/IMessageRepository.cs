@@ -10,6 +10,7 @@ namespace Repositories.Repositories
         List<Message> getAcceptedMessageById(int id);
         List<Message> getSentMessageById(int id);
         int sentMessage(Message newMessage);
+        
 
     }
 }

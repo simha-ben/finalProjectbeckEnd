@@ -21,8 +21,11 @@ namespace ServisesBL
         }
 
         public int createNewMessage(MessageVM messageVM)
-        {
+        {if (messageVM.ToUser == 0 || messageVM.FromUser ==0)
+                return -1;
                 Message newM=(mapper.Map<Message>(messageVM));
+            newM.Date = DateTime.Now;
+            
             return messageRepo.sentMessage(newM);
         }
 

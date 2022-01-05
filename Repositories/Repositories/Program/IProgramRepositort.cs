@@ -8,5 +8,6 @@ namespace Repositories.Repositories
    public interface IProgramRepositort
     {
         List<Program> getAllPrograms();
+       
     }
 }
