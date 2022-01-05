@@ -20,9 +20,10 @@ namespace ServisesBL
             this.global = global;
         }
 
-        public void changeProgramstatus(int programId, int status)
+        public void changeProgramStatus(int? programId, int? status)
         {
-            ////////////////////////////
+            if(programId!=null &&status!= null)
+                 adminRepo.changeProgramStatus(programId, status);
         }
 
         public int createNewAdmin(AdminVM newAdmin)

@@ -14,7 +14,7 @@ namespace Repositories.Repositories
             this.context = c;
         }
 
-        public void changeProgramstatus(int programId, int status)
+        public void changeProgramStatus(int? programId, int? status)
         {
             context.Program.Where(p => p.Id == programId).FirstOrDefault().Status = status;
             context.SaveChanges();
