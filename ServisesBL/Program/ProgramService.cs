@@ -21,9 +21,32 @@ namespace ServisesBL
             this.userRepo = user;
             this.global = c;
         }
-        public List<ProgramVM> getAllPrograms()
+
+        public int AddNewProgram(ProgramVM item)
         {
-            List<Program> p = programRepo.getAllPrograms();
+       //     Program p = mapper.Map<Program>(newProgram);
+            Program P = new Program();/*= mapper.Map<Program>(item); */
+            P.Age = global.convertNameToId("Age", item.Age);
+            P.Migdar = global.convertNameToId("Migdar", item.Migdar);
+            P.Language = global.convertNameToId("Language", item.Language);
+            P.SumOfParticipants = global.convertNameToId("SumOfParticipants", item.SumOfParticipants);
+            P.Type = global.convertNameToId("Type", item.Type);
+            P.Subject = global.convertNameToId("Subject", item.Subject);
+            P.Programer = item.Programer;
+            P.Title = item.Title;
+            P.Img = item.Img;
+            P.Price = item.Price;
+            P.Description = item.Description;
+            P.PublishDate = item.PublishDate;
+            P.Status = -1;
+            P.Img = item.Img;
+            return programRepo.AddNewProgram(P);
+        }
+
+       
+        public List<ProgramVM> GetAllPrograms()
+        {
+            List<Program> p = programRepo.GetAllPrograms();
             List<ProgramVM> vm = new List<ProgramVM>();
             foreach (var item in p)
             {
@@ -34,14 +57,15 @@ namespace ServisesBL
                 pmv.Language = global.convert("Language", (int)(item.Language));               
                 pmv.SumOfParticipants = global.convert("SumOfParticipants", (int)(item.SumOfParticipants));               
                 pmv.Type = global.convert("Type", (int)(item.Type));               
-                pmv.ProgramerName = global.convert("Programer", (int)(item.Programer));               
+                pmv.ProgramerName = global.convert("Programer", (int)(item.Programer));
+                pmv.Subject = global.convert("Subject", (int)(item.Subject));               
                
                 vm.Add(pmv);
             }
             return vm;
         }
 
-        public List<string> getFields(string tableName)
+        public List<string> GetFields(string tableName)
         {
             return global.getAllFiles(tableName);
         }

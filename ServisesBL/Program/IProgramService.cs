@@ -5,10 +5,11 @@ using System.Text;
 
 namespace ServisesBL
 {
-  public  interface IProgramService
+    public interface IProgramService
     {
-        List<ProgramVM> getAllPrograms();
-         List<string> getFields(string tableName);
-        
+        List<ProgramVM> GetAllPrograms();
+        List<string> GetFields(string tableName);
+        int AddNewProgram(ProgramVM newProgram);
+
     }
 }

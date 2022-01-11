@@ -18,6 +18,7 @@ namespace Repositories.Models
         public DateTime? PublishDate { get; set; }
         public string Title { get; set; }
         public int? Status { get; set; }
+        public string Img { get; set; }
 
         public virtual Age AgeNavigation { get; set; }
         public virtual Language LanguageNavigation { get; set; }

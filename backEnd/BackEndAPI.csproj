@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ServisesBL\ServisesBL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

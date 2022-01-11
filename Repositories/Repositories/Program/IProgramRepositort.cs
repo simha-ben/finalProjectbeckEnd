@@ -7,7 +7,8 @@ namespace Repositories.Repositories
 {
    public interface IProgramRepositort
     {
-        List<Program> getAllPrograms();
+        List<Program> GetAllPrograms();
+        int AddNewProgram(Program newProgram);
        
     }
 }

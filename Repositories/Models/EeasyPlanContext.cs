@@ -118,6 +118,10 @@ namespace Repositories.Models
 
                 entity.Property(e => e.Description).HasColumnName("description");
 
+                entity.Property(e => e.Img)
+                    .HasColumnName("img")
+                    .HasMaxLength(300);
+
                 entity.Property(e => e.Language).HasColumnName("language");
 
                 entity.Property(e => e.Migdar).HasColumnName("migdar");

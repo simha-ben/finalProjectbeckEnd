@@ -19,6 +19,7 @@ namespace Common
         public string Language { get; set; }
         public DateTime? PublishDate { get; set; }
         public string Title { get; set; }
+        public string? Img { get; set; }
 
 
     }

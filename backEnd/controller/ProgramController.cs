@@ -21,12 +21,18 @@ namespace BackEndAPI.controller
         [HttpGet]
         public List<ProgramVM> getAll()
         {
-            return programService.getAllPrograms();
+            return programService.GetAllPrograms();
         }
         [HttpGet("getFields/{TableName}")]
         public List<string> getfieleds(string TableName)
         {
-            return programService.getFields(TableName);
+            return programService.GetFields(TableName);
+        }
+
+        [HttpPost]
+        public int CreateNewProgram(ProgramVM uvm)
+        {
+            return programService.AddNewProgram(uvm);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace backEnd
         {
             if (env.IsDevelopment())
             {
+                app.UseStaticFiles();
                 app.UseDeveloperExceptionPage();
                 app.UseRouting();
                 app.UseCors();
