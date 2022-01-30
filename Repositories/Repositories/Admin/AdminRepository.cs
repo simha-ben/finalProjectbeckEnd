@@ -14,10 +14,22 @@ namespace Repositories.Repositories
             this.context = c;
         }
 
-        public void changeProgramStatus(int? programId, int? status)
+        public string changeProgramStatus(int? programId, int? status)
         {
+            try
+            { 
             context.Program.Where(p => p.Id == programId).FirstOrDefault().Status = status;
-            context.SaveChanges();
+           int res= context.SaveChanges();
+            if (res>=0)
+            {
+                return "תוכנית " + programId + " נוספה לתוכניות הפעילות";
+            }
+            return "ארעה שגיאה במהלך שמירת הנתונים";
+            }
+            catch(Exception err)
+            {
+                return err.Message;
+            }
         }
 
         public int createNewAdmin(Admin newAdmin)
@@ -70,6 +82,10 @@ namespace Repositories.Repositories
             context.Program.Add(newProgram);
             int isOK = context.SaveChanges();
             return isOK;
+        }
+        public Admin GetAdmin()
+        {
+            return context.Admin.FirstOrDefault();
         }
 
     }

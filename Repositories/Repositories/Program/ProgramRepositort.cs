@@ -9,9 +9,11 @@ namespace Repositories.Repositories
     public class ProgramRepositort : IProgramRepositort
     {
         easyPlan contaxt;
-        public ProgramRepositort(easyPlan easy)
+        IGlobalInterface global;
+        public ProgramRepositort(easyPlan easy,IGlobalInterface global)
         {
             this.contaxt = easy;
+            this.global = global;
         }
 
         public int AddNewProgram(Program newProgram)
@@ -27,6 +29,14 @@ namespace Repositories.Repositories
         {
             return contaxt.Program.Where(p => p.Status == 1).ToList();
         }
-
+        public string getDetailes(Program p)
+        {
+            return "כותרת :" + p.Title
+                + "/n מאת: " + global.convert("User", p.Programer)
+                + "/n תאור: " + p.Description
+                + "/n מיועד לגילאי: " + global.convert("Age", p.Age)
+            +"/n נושא: " + global.convert("Subject", p.Subject);
+               
+        }
     }
 }

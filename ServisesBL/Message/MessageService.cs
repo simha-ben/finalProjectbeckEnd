@@ -50,7 +50,8 @@ namespace ServisesBL
             foreach (var item in messages)
             {
                 MessageVM m = (mapper.Map<MessageVM>(item));
-                m.ToUserName = userRepo.getUserNameById(id);
+                m.ToUserName = userRepo.getUserNameById(item.ToUser);
+                m.FromUserName = userRepo.getUserNameById(item.FromUser);
                 sentfMessage.Add(m);
             }
             return sentfMessage;

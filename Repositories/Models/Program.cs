@@ -27,5 +27,6 @@ namespace Repositories.Models
         public virtual Subject SubjectNavigation { get; set; }
         public virtual SumOfParticipants SumOfParticipantsNavigation { get; set; }
         public virtual Type TypeNavigation { get; set; }
+        
     }
 }

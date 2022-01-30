@@ -20,10 +20,11 @@ namespace ServisesBL
             this.global = global;
         }
 
-        public void changeProgramStatus(int? programId, int? status)
+        public string changeProgramStatus(int? programId, int? status)
         {
             if(programId!=null &&status!= null)
-                 adminRepo.changeProgramStatus(programId, status);
+               return  adminRepo.changeProgramStatus(programId, status);
+            return "הפעולה נכשלה אחד מהנתונים שהוזנו אינם נכונים";
         }
 
         public int createNewAdmin(AdminVM newAdmin)

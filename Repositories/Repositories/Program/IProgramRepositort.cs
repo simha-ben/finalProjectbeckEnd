@@ -9,6 +9,8 @@ namespace Repositories.Repositories
     {
         List<Program> GetAllPrograms();
         int AddNewProgram(Program newProgram);
-       
+        string getDetailes(Program p);
+
+
     }
 }

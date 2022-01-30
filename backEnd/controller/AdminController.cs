@@ -32,10 +32,10 @@ namespace BackEndAPI.controller
         {
             return adnimService.newProgram(pvm);
         }
-        [HttpPost("changeStatus")]
-        public void changeStatus(int? programId,int?status)
+        [HttpGet("changeStatus/{programId}/{status}")]
+        public string changeStatus(int? programId,int?status)
         {
-            adnimService.changeProgramStatus(programId, status);
+           return adnimService.changeProgramStatus(programId, status);
         }
 
 

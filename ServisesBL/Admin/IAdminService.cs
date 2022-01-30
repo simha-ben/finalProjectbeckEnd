@@ -11,7 +11,7 @@ namespace ServisesBL
         int createNewAdmin(AdminVM newAdmin);
         int login(AdminVM newAdmin);
         int newProgram(ProgramVM newProgram);
-        void changeProgramStatus(int? programId, int? status);
+        string changeProgramStatus(int? programId, int? status);
 
     }
 }

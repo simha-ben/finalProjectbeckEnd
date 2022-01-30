@@ -12,6 +12,6 @@ namespace Repositories.Repositories
         int createNewUser(Users newUser);
         List<Users> getAllUsers();
 
-        string getUserNameById(int id);
+        string getUserNameById(int? id);
     }
 }

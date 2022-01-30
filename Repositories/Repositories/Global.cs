@@ -13,7 +13,7 @@ namespace Repositories.Repositories
         {
             this.context = context;
         }
-        public string convert(string table,int id )
+        public string convert(string table,int? id )
         { string res="" ;
             switch (table)
             {   case "Migdar":

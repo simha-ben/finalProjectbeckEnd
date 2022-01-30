@@ -56,7 +56,7 @@ namespace Repositories.Repositories
             return allNames;
         }
 
-        public string getUserNameById(int id)
+        public string getUserNameById(int? id)
         {
             string name = "";
             name = context.Users.Where(u => u.Id == id).FirstOrDefault().UserName;
