@@ -30,7 +30,13 @@ namespace Repositories.Repositories
         public int sentMessage(Message newMessage)
         {
             context.Message.Add(newMessage);
-            int isOK = context.SaveChanges();
+            int isOK = -99;
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex) { }
+
             return isOK;
         }
 

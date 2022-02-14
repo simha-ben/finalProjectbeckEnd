@@ -19,7 +19,13 @@ namespace Repositories.Repositories
         public int AddNewProgram(Program newProgram)
         {
             var addedUser = contaxt.Program.Add(newProgram);
-            int succed = contaxt.SaveChanges();
+            int succed = 0;
+            try
+            {
+                succed= contaxt.SaveChanges();
+            }
+            catch (Exception ex) { }
+                
             if (succed > 0)
                 return addedUser.Entity.Id;
             return -1;

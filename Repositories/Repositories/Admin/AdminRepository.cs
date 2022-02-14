@@ -19,7 +19,7 @@ namespace Repositories.Repositories
             try
             { 
             context.Program.Where(p => p.Id == programId).FirstOrDefault().Status = status;
-           int res= context.SaveChanges();
+                int res =context.SaveChanges();              
             if (res>=0)
             {
                 return "תוכנית " + programId + " נוספה לתוכניות הפעילות";
@@ -55,7 +55,13 @@ namespace Repositories.Repositories
             if (id != -1)
             {
                var newA= context.Admin.Add(newAdmin);
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception ex) { }
+
+
                 id = newA.Entity.Id;
             }
             return id;
@@ -80,7 +86,13 @@ namespace Repositories.Repositories
         public int newProgram(Program newProgram)
         {
             context.Program.Add(newProgram);
-            int isOK = context.SaveChanges();
+            int isOK = -99;
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception ex) { }
+
             return isOK;
         }
         public Admin GetAdmin()
