@@ -37,6 +37,8 @@ namespace ServisesBL
             {
                 MessageVM m=(mapper.Map<MessageVM>(item));
                 m.FromUserName = userRepo.getUserNameById(m.FromUser);
+                m.ToUserName = userRepo.getUserNameById(m.ToUser);
+
                 acceptefMessage.Add(m);
             }
             return acceptefMessage;

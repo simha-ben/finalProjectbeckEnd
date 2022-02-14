@@ -22,8 +22,23 @@ namespace ServisesBL
         public int createNewUser(UserVM uvm)
         {
             Users newU = mapper.Map<Users>(uvm);
-            Mail.SendMail("ברכות על כניסתך למערכת", "    ", uvm.Email);
-            return userRepository.createNewUser(newU);
+
+            int res= userRepository.createNewUser(newU);
+            if (res > 0)
+            {
+                string bady = " <p>" +
+                    "  שלום   " + uvm.UserName +
+                    "<br/>" +
+                    "  שם המשתמש שלך הוא  " +
+                    uvm.UserName +
+                    "<br/>" +
+                    "  הסיסמא שלך היא " +
+                    uvm.Password +
+                    "</p>";
+                
+                Mail.SendMail("ברכות על כניסתך למערכת", bady, uvm.Email);
+            }
+            return res;
         }
 
         public List<string> getAllUsersName()

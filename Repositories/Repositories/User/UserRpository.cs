@@ -32,9 +32,14 @@ namespace Repositories.Repositories
                 }
             }
             if (answer!=-1)
-            { 
+            {
+                
                 var addedUser=context.Users.Add(newUser); 
-                int succed=context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch(Exception ex) { }
                 answer= addedUser.Entity.Id;
             }
 
@@ -57,9 +62,17 @@ namespace Repositories.Repositories
         }
 
         public string getUserNameById(int? id)
-        {
-            string name = "";
+        {string name = "";
+            try
+            {
+ 
             name = context.Users.Where(u => u.Id == id).FirstOrDefault().UserName;
+            return name;
+            }
+            catch(Exception err)
+            {
+
+            }
             return name;
         }
 

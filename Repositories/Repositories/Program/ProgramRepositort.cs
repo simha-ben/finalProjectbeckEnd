@@ -31,11 +31,19 @@ namespace Repositories.Repositories
         }
         public string getDetailes(Program p)
         {
-            return "כותרת :" + p.Title
-                + "/n מאת: " + global.convert("User", p.Programer)
-                + "/n תאור: " + p.Description
-                + "/n מיועד לגילאי: " + global.convert("Age", p.Age)
-            +"/n נושא: " + global.convert("Subject", p.Subject);
+            return
+                " <p>  מאת: " + global.convert("User", p.Programer) + "<br/>"               
+                   + "כותרת :" + p.Title + "<br/>"
+                + " סוג התוכנית: " + p.Description + "<br/>"
+                + " מיועד לגילאי: " + global.convert("Age", p.Age) + "<br/>"
+                 + " כמות משתתפים: " + global.convert("SumOfParticipants", p.SumOfParticipants) + "<br/>"
+                 + " תאור: " + p.Description + "<br/>"
+                 + " מחיר: " + p.Price + "<br/>"                 
+                 + "  נושא: " + global.convert("Subject", p.Subject) + "<br/>" 
+                 + " מיועד עבור: " + global.convert("Migdar", p.Age) + "<br/>"              
+                 + " שפה: " + global.convert("Language", p.Age) + "<br/>"              
+                + " תאריך יצירה: " + p.PublishDate + "<br/>"
+                +"</p>";
                
         }
     }

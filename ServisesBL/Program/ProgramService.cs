@@ -45,9 +45,10 @@ namespace ServisesBL
 
             int prog = programRepo.AddNewProgram(P);
             if (prog > 0)
-            {
-                Mail.SendMail("תוכנית חדשה במערכת ממתינה לאישור",
-              "linq " + programRepo.getDetailes(P),
+            {           
+                Mail.SendMail(
+              "תוכנית חדשה במערכת ממתינה לאישור",
+             programRepo.getDetailes(P),
               adminRepo.GetAdmin().Email,
               prog.ToString());
             }
